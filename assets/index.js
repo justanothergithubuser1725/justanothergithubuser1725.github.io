@@ -8,15 +8,18 @@ function redraw(width,height) {
     context.fillStyle="#ffffff";
     context.fillRect(100,100,100,100);
 }
+function resize() {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+    redraw(width,height)
+}
 //Note: requestIdleCallback adds something that's called when idle
 requestAnimationFrame(function self(time) {
     redraw(canvas.width,canvas.height);
     requestAnimationFrame(self);
 });
 
-window.addEventListener('resize',(event)=>{
-    const width = window.innerWidth;
-    const height = window.innerHeight;
-    canvas.width = width;
-    canvas.height = height;
-});
+window.addEventListener('resize',resize);
+resize();
