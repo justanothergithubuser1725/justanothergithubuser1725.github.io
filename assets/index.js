@@ -13,10 +13,10 @@ requestAnimationFrame(function self(time) {
     redraw(canvas.width,canvas.height);
     requestAnimationFrame(self);
 });
+
 window.addEventListener('resize',(event)=>{
     const width = window.innerWidth;
     const height = window.innerHeight;
     canvas.width = width;
     canvas.height = height;
-    redraw(width,height);
 });
